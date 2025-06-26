@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Input Condition</title>
+  <style>
+    #box {
+      width: 300px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Check Number Condition</h2>
+
+<input type="number" id="numInput" placeholder="Enter a number">
+<button onclick="checkValue()">Check</button>
+
+<div id="box">Waiting for input...</div>
+
+<script>
+  function checkValue() {
+    const input = document.getElementById("numInput").value;
+    const box = document.getElementById("box");
+    const number = parseFloat(input);
+
+    if (!isNaN(number)) {
+      if (number >= 10) {
+        box.style.backgroundColor = "green";
+        box.textContent = "Condition is TRUE (>= 10)";
+      } else {
+        box.style.backgroundColor = "red";
+        box.textContent = "Condition is FALSE (< 10)";
+      }
+    } else {
+      box.style.backgroundColor = "gray";
+      box.textContent = "Invalid input. Please enter a number.";
+    }
+  }
+</script>
+
+</body>
+</html>
